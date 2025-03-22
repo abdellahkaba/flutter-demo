@@ -33,6 +33,63 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/chaussure3.png"),
+                    radius: 50,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/montre5.png"),
+                    radius: 40,
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.black, Theme.of(context).primaryColor],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              trailing: Icon(Icons.arrow_forward),
+              title: Text(
+                "Home",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {},
+            ),
+
+            Divider(height: 1, color: Theme.of(context).primaryColor),
+
+            ListTile(
+              leading: Icon(Icons.countertops),
+              trailing: Icon(Icons.arrow_forward),
+              title: Text(
+                "Counter",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {},
+            ),
+            Divider(height: 2, color: Theme.of(context).primaryColor),
+            ListTile(
+              leading: Icon(Icons.chat),
+              trailing: Icon(Icons.arrow_forward),
+              title: Text(
+                "Chat",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           "Bienvenue dans mon application",
