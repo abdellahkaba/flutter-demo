@@ -9,7 +9,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(fontSize: 33),
+          bodyMedium: TextStyle(fontSize: 20),
+          displayLarge: TextStyle(fontSize: 40),
+        ),
+        indicatorColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          primary: Colors.teal,
+        ),
+      ),
+      home: HomePage(),
+    );
   }
 }
 
@@ -22,12 +36,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Bienvenue dans mon application",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Theme.of(context).indicatorColor,
+            fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize,
+          ),
         ),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
-        child: Text("Hello EveryOne", style: TextStyle(fontSize: 30)),
+        child: Text(
+          "Hello EveryOne",
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
       ),
     );
   }
